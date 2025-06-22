@@ -1,0 +1,15 @@
+<div class="mt-2 text-end">
+    <button class="btn btn-success" (click)="sendOrdersWhatsApp()" [disabled]="Order.length === 0">
+        Send Orders with WhatsApp
+    </button>
+</div>
+<div class="container mt-5 pt-5">
+    <div class="row g-4">
+        <div class="col-md-4" *ngFor="let item of products">
+            <app-product-card [id]="item.id" [title]="item.title" [price]="item.price" [quantity]="item.quantity"
+                [imageUrl]="item.image_url" (add)="addOrder($event)">
+
+            </app-product-card>
+        </div>
+    </div>
+</div>

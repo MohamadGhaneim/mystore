@@ -1,0 +1,70 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Add / Edit Product</h2>
+
+    <form (ngSubmit)="submit()" #productForm="ngForm" class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" [(ngModel)]="product.title" name="title" required />
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" [(ngModel)]="product.price" name="price" required />
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Product Image</label>
+            <input type="file" class="form-control" (change)="onFileSelected($event)" />
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control" [(ngModel)]="product.quantity" name="quantity" required />
+        </div>
+
+        <div class="col-md-6">
+            <button class="btn btn-success w-100" [disabled]="!productForm.valid">Add Product</button>
+        </div>
+
+
+    </form>
+
+    <hr class="my-4" />
+
+    <h3 class="text-center mb-3">Product List</h3>
+
+    <button class="btn btn-warning btn-sm" (click)="editProduct(product)">Edit</button>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of products; let i = index">
+                    <td><span class="badge bg-secondary">{{ item.id }}</span></td>
+                    <td>
+                        <img [src]="item.image_url" alt="{{ item.title }}" width="60" height="60"
+                            class="img-fluid rounded" />
+                    </td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.price }} $</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+                            <button class="btn btn-primary btn-sm" (click)="selectProduct(item)">Select</button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteProduct(item.id)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

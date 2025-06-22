@@ -1,0 +1,28 @@
+<div class="container-fluid mb-3">
+    <nav class="navbar navbar-expand bg-primary shadow fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item link-offset-1-hover">
+                        <a class="nav-link fs-5 text-white">{{ displayName }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/admin" routerLinkActive="active">Add Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">
+                            more
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a class="dropdown-item" routerLink="/" (click)="logout()">log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

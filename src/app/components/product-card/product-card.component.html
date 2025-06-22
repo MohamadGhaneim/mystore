@@ -1,0 +1,22 @@
+<div class="card shadow h-100">
+  <img [src]="imageUrl" class="card-img-top" width="30" height="150" [alt]="title" />
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text">
+      <span class="fw-bold ms-2 text-success">{{ price }} $</span>
+    </p>
+    <p>Available: {{ quantity }}</p>
+  </div>
+
+  <div class="card-footer text-end d-flex align-items-center justify-content-end gap-2">
+    <input
+      id="quantityInput"
+      type="number"
+      [(ngModel)]="selectedQuantity"
+      [min]="1"
+      [max]="quantity"
+      style="width: 70px;"
+    />
+    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="container mt-5 pt-5">
+    <div class="row g-4">
+        <div class="col-md-4" *ngFor="let item of products">
+            <app-product-card [title]="item.title" [price]="item.price" [quantity]="item.quantity"
+                [imageUrl]="item.image_url">
+            </app-product-card>
+        </div>
+    </div>
+</div>

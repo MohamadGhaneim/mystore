@@ -1,0 +1,26 @@
+<div class="bg-info d-flex align-items-center justify-content-center min-vh-100 p-3">
+    <form class="card shadow p-4 w-100" style="max-width: 400px;" (ngSubmit)="login()" #loginForm="ngForm">
+        <h1 class="text-center mb-3">
+            <i class="fa-solid fa-user"></i> Login
+        </h1>
+        <hr />
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Username" name="username"
+                [(ngModel)]="username" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pass" placeholder="Password" name="password"
+                [(ngModel)]="password" required />
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+                Login
+            </button>
+        </div>
+    </form>
+</div>
